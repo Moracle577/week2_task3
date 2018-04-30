@@ -15,9 +15,20 @@ public class PracticeB {
                 } else {
                     map.put(collection1.get(i), 1);
                 }
-            } else {
-                map.put(collection1.get(i).substring(0, 1),
-                        Integer.parseInt(collection1.get(i).substring(2, 3)));
+            }  else {
+                String str = "";
+                for (int j = 0; j < collection1.get(i).length(); j++) {
+                    if (collection1.get(i).charAt(j) >= 48 && collection1.get(i).charAt(j) <= 57) {
+                        str += collection1.get(i).charAt(j);
+                    }
+                }
+                if (map.containsKey(collection1.get(i).substring(0, 1))) {
+                    map.put(collection1.get(i).substring(0, 1),
+                            map.get(collection1.get(i).substring(0,1)).intValue() + Integer.valueOf(str));
+
+                } else {
+                    map.put(collection1.get(i).substring(0,1), Integer.valueOf(str));
+                }
 
             }
 
